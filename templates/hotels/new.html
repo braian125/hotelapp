@@ -1,0 +1,79 @@
+{% extends "app.html" %}
+
+{% block head_content %}
+<title>Hotels List</title>
+{% endblock%}
+
+{% block container %}
+    <div class="uk-flex uk-flex-center">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="user" value="{{ user.pk }}" />
+            {% csrf_token %}
+            <div class="uk-margin">
+                <label class="uk-form-label" for="name">Nombre del hotel</label>
+                <div class="uk-form-controls">
+                    <input type="text" name="name" class="uk-input uk-form-width-large {% if form.name.errors %}uk-form-danger{% endif %}" placeholder="Nombre del hotel">
+                </div>
+            </div>
+            {% if form.name.errors %}
+                <div class="uk-alert-danger" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>{% for error in form.name.errors %}{{ error }}{% endfor %}</p>
+                </div>
+            {% endif %}
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="address">Dirección</label>
+                <div class="uk-form-controls">
+                    <input type="text" name="address" class="uk-input uk-form-width-large {% if form.address.errors %}uk-form-danger{% endif %}" placeholder="Dirección">
+                </div>
+            </div>
+            {% if form.address.errors %}
+                <div class="uk-alert-danger" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>{% for error in form.address.errors %}{{ error }}{% endfor %}</p>
+                </div>
+            {% endif %}
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="category">Categoría</label>
+                <div class="uk-form-controls">
+                    <div class="rate">
+                        <input type="radio" id="star5" name="category" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="category" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="category" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="category" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="category" value="1" />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label for="photo" class="uk-form-label">Elija una foto</label>
+                <div class="uk-form-controls">
+                    <input
+                        class="form-control {% if form.photo.errors %}uk-form-danger{% endif %}"
+                        type="file"
+                        name="photo"
+                        placeholder="photo"
+                    >
+                </div>
+            </div>
+            {% if form.photo.errors %}
+                <div class="uk-alert-danger" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>{% for error in form.photo.errors %}{{ error }}{% endfor %}</p>
+                </div>
+            {% endif %}
+
+            <button type="submit" class="uk-button uk-button-secondary uk-width-1-1">Guardar</button>
+        </form>
+    </div>
+{% endblock %}
+
+

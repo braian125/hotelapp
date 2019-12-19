@@ -1,0 +1,18 @@
+{% extends "app.html" %}
+
+{% block head_content %}
+<title>Hotels Detail</title>
+{% endblock%}
+
+{% block container %}
+    <div class="uk-flex uk-flex-center">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="{{ hotel.photo.url }}" alt="{{ hotel.name }}" width="150px">
+            <h3 class="uk-card-title">{{ hotel.name }}</h3>
+            <h5>{{ hotel.address }}</h5>
+            {% if hotel.user == user %}
+                <button type="submit" class="uk-button uk-button-default uk-button-small">Modificar</button>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

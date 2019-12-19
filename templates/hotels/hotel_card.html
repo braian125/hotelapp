@@ -1,0 +1,36 @@
+<div class="uk-flex-center" uk-grid>
+    
+    <div class="uk-card uk-card-default">
+        <div class="uk-card-media-top">
+            <img src="{{ hotel.photo.url }}" alt="{{ hotel.name }}">
+        </div>
+        <div class="uk-card-body">
+            <h3 class="uk-card-title">
+                <a href="{% url 'hotels:hotelDetail' hotel.id %}">{{ hotel.name }}</a>
+                <div class="rate">
+                    <input type="radio" id="star5" name="category[{{hotel.id}}]" value="5" 
+                        {% if hotel.category == 5 %} checked {% endif %}
+                    />
+                    <label for="star5" title="text"></label>
+                    <input type="radio" id="star4" name="category[{{hotel.id}}]" value="4" 
+                        {% if hotel.category == 4 %} checked {% endif %}
+                    />
+                    <label for="star4" title="text"></label>
+                    <input type="radio" id="star3" name="category[{{hotel.id}}]" value="3" 
+                        {% if hotel.category == 3 %} checked {% endif %}
+                    />
+                    <label for="star3" title="text"></label>
+                    <input type="radio" id="star2" name="category[{{hotel.id}}]" value="2" 
+                        {% if hotel.category == 2 %} checked {% endif %}
+                    />
+                    <label for="star2" title="text"></label>
+                    <input type="radio" id="star1" name="category[{{hotel.id}}]" value="1" 
+                        {% if hotel.category == 1 %} checked {% endif %}
+                    />
+                    <label for="star1" title="text"></label>
+                </div>
+            </h3>
+            <p>{{hotel.address}}</p>
+        </div>
+    </div>
+</div>

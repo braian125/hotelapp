@@ -1,0 +1,32 @@
+{% extends "users/auth/layout.html" %}
+
+{% block head_content %}
+<title>Sign in</title>
+{% endblock%}
+
+{% block container %}
+    <div class="uk-container uk-margin-large-top">
+        <div class="uk-flex uk-flex-center">
+            <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+                <form method="POST" action="{% url 'users:signin' %}">
+                    {% csrf_token %}
+                    <div class="uk-margin">
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            <input class="uk-input" type="text" name="username" placeholder="Usuario">
+                        </div>
+                    </div>
+                
+                    <div class="uk-margin">
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            <input class="uk-input" type="password" name="password" placeholder="Contrasena">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="uk-button uk-button-secondary uk-width-1-1">Iniciar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

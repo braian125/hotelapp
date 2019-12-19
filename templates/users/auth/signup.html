@@ -1,0 +1,20 @@
+{% extends "users/auth/layout.html" %}
+
+{% block head_content %}
+<title>Sign up</title>
+{% endblock%}
+
+{% block container %}
+    <div class="uk-container uk-margin-large-top">
+        <div class="uk-flex uk-flex-center">
+            <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                    
+                    <button type="submit" class="uk-button uk-button-secondary uk-width-1-1">Iniciar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

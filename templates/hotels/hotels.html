@@ -1,0 +1,11 @@
+{% extends "app.html" %}
+
+{% block head_content %}
+<title>Hotels List</title>
+{% endblock%}
+
+{% block container %}
+    {% for hotel in hotels %}
+        {% include "hotels/hotel_card.html" %}
+    {% endfor %}
+{% endblock %}
